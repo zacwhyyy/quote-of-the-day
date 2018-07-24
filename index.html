@@ -1,0 +1,251 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+
+    <title>Quote of the Day</title>
+    <style>
+      #author {
+        font-size: 14px;
+        font-style: italic;
+        font-weight: bold;
+      }
+
+      .desc {
+        font-size: 12px;
+        font-style: italic;
+      }
+
+      #next-btn {
+        margin: 0 auto;
+        display: block;
+      }
+
+      #quote {
+        font-size: 19px;
+      }
+    </style>
+  </head>
+  <body class="bg-light">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <a class="navbar-brand" href="#">Quote of the Day</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavDropdown">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link" href="http://limzhiyang.com/codetolearn/" target="_blank">Code to Learn</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="http://limzhiyang.com/profile/" target="_blank">About Me</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    <div class="container mt-5">
+      <div class="row pt-5">
+          <div class="col-1 col-sm-3"></div>
+          <div class="col-10 col-sm-6">
+            <h1 class="text-center">Quote of the Day</h1>
+            <p class="text-center desc">This project randomly displays a quote that I have gathered from Medium articles.<br>The quote will change in every 20 seconds.</p>
+            <hr>
+            <p class="text-center mt-4" id="quote"></p>
+            <p class="text-center" id="author"></p>
+            <button type="button" class="btn btn-outline-primary mt-4" id="next-btn">Show Me Another</button>
+          </div>
+          <div class="col-1 col-sm-3"></div>
+      </div>
+    </div>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
+  </body>
+</html>
+
+<script>
+var quote = document.getElementById("quote");
+var author = document.getElementById("author");
+
+var quoteObj = {
+  quoteArr : [
+    {
+      quote : "People are unhappy in large part because they are confused about what is valuable.",
+      author : "William Irvine"
+    },
+    {
+      quote : "Good is the enemy of great. We don’t have great schools, principally because we have good schools. We don’t have great government, principally because we have good government. Few people attain great lives, in large part because it is just so easy to settle for a good life.",
+      author : "Jim Collins" 
+    },
+    {
+      quote : "If we do not create and control our environment, our environment creates and controls us.",
+      author : "Marshall Goldsmith" 
+    },
+    {
+      quote : "Most people have no clue what they are doing with their time but still complain that they don’t have enough.",
+      author : "Grant Cardone" 
+    },
+    {
+      quote : "When the goal is merely to ‘get through’ the day as quickly as possible, life will pass full of regrets. Time becomes the great taskmaster when it should be the liberator. Time is endured rather than enjoyed.",
+      author : "Benjamin Hardy" 
+    },
+    {
+      quote : "If you want to live an exceptional and extraordinary life, you have to give up many of the things that are part of a normal one.",
+      author : "Srinivas Rao" 
+    },
+    {
+      quote : "People are unhappy in large part because they are confused about what is valuable.",
+      author : "William Irvine" 
+    },
+    {
+      quote : "If you want to improve, be content to be thought foolish and stupid.",
+      author : "Epictetus, Ancient Stoic Philosopher" 
+    },
+    {
+      quote : "The great achievements in this world are reserved for those willing to look like a fool in the eyes of society.",
+      author : "Chad Grills" 
+    },
+    {
+      quote : "All of us, more than we recognize, are products of the thinking around us. And much of this thinking is small.",
+      author : "David Schwartz" 
+    },
+    {
+      quote : "Forget about titles and impressing others. Focus on becoming a person you are incredibly proud to be.",
+      author : "Unknown" 
+    },
+    {
+      quote : "It doesn’t matter how much faster they’re going. It doesn’t matter how much faster you’re going. If you keep looking at other lanes, you’re going to crash. Focus on you. Learn all you can. Experiment, fail, discover what works.",
+      author : "Unknown" 
+    },
+    {
+      quote : "If your lifestyle does not add to your healing, it will subtract from it.",
+      author : "Benjamin Foley" 
+    },
+    {
+      quote : "We can be truly successful only at things we are willing to fail at.",
+      author : "Mark Manson" 
+    },
+    {
+      quote : "Your level of success will rarely exceed your level of personal development, because success is something you attract by the person you become.",
+      author : "Hal Elrod" 
+    },
+    {
+      quote : "Haters confirm greatness.",
+      author : "Alex Charfen" 
+    },
+    {
+      quote : "Personal incongruency is what causes so much of our pain. Not being you will destroy you.",
+      author : "Tim Denning" 
+    },
+    {
+      quote : "The time you spend being jealous of others’ success is time they spent working. Guess which one is more valuable.",
+      author : "Jon Westenberg" 
+    },
+    {
+      quote : "Would you like me to give you a formula for success? It’s quite simple, really: Double your rate of failure. You are thinking of failure as the enemy of success. But it isn’t at all. You can be discouraged by failure or you can learn from it, so go ahead and make mistakes. Make all you can. Because remember that’s where you will find success.",
+      author : "Thomas J. Watson" 
+    },
+    {
+      quote : "If I fail more than you do, I win.",
+      author : "Seth Godin" 
+    },
+    {
+      quote : "Successful people don’t see it as ‘free time.’ They see it as the only time they have to do the things they really want to do in life and they don’t take a minute for granted.",
+      author : "Nicolas Cole" 
+    },
+    {
+      quote : "There is one thing that 99% of failures and successful people have in common: they all hate doing the same things. The difference is successful people do them anyway.",
+      author : "Darren Hardy" 
+    },
+    {
+      quote : "Become aware of and make choices that support the expansion of your life.",
+      author : "Darren Hardy" 
+    },
+    {
+      quote : "If you can’t learn, you can’t thrive.",
+      author : "Cal Newport" 
+    },
+    {
+      quote : "Anything of significance is going to be hard.” Whatever you decide to study will be difficult at first.",
+      author : "Jim Rohn" 
+    },
+    {
+      quote : "Depth is where the gold is buried. And you have to stay committed to something and go deep to dig it up.",
+      author : "Mark Manson" 
+    },
+    {
+      quote : "A mind that is stretched by a new experience can never go back to its old dimensions.",
+      author : "Oliver Wendell Holmes, Jr." 
+    },
+    {
+      quote : "The journey of a thousand miles begins with a single step.",
+      author : "Tao Te Ching" 
+    },
+    {
+      quote : "You pile up enough tomorrows, and you’ll find you are left with nothing but a lot of empty yesterdays.",
+      author : "Harold Hill" 
+    },
+    {
+      quote : "The moment you accept responsibility for EVERYTHING in your life is the moment you can change ANYTHING in your life.",
+      author : "Hal Elrod" 
+    },
+    {
+      quote : "You can’t change your destination overnight, but you can change your direction overnight.",
+      author : "Jim Rhon" 
+    },
+    {
+      quote : "When you build a habit, you don’t have to spend mental energy deciding what to do.",
+      author : "David Kadavy" 
+    },
+    {
+      quote : "Anyone who truly makes something of themselves takes their free time and reinvests it in themselves.",
+      author : "Nicolas Cole" 
+    },
+    {
+      quote : "Winners act like winners before they become winners. That’s how they become winners.",
+      author : "Bill Walsh" 
+    },
+    {
+      quote : "Don’t seek praise, seek criticism.",
+      author : "Benjamin Hardy" 
+    },
+    {
+      quote : "If you keep living like the way you are now, you will continue to produce the same life you already have.",
+      author : "Jim Rhon" 
+    },
+    {
+      quote : "The bitterest tears shed over graves are for words left unsaid and deeds left undone.",
+      author : "Harriet Beecher Stowe" 
+    }
+  ]
+}
+
+function randomise() {
+  var maxNum = quoteObj.quoteArr.length;
+  var randNum = Math.floor(Math.random() * maxNum);
+  quote.innerHTML = quoteObj.quoteArr[randNum].quote;
+  author.innerHTML = quoteObj.quoteArr[randNum].author;
+}
+
+randomise();
+
+//use set interval to change the quote every 20 seconds
+function setTimer() {
+  var myTimer = window.setInterval(randomise, 20000);
+}
+setTimer();
+
+//Wrap functions in a function, when button is click, randomise the quote and reset timer
+document.getElementById("next-btn").addEventListener("click" , function() {
+  randomise();
+});
+</script>
